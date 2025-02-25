@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Slow English Reader",
+  "version": "1.0",
+  "description": "Odsłuchuje zaznaczony tekst po angielsku w wolniejszym tempie.",
+  "permissions": ["contextMenus", "scripting", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
+

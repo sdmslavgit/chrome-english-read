@@ -19,7 +19,7 @@ function readSelectedText() {
   const selectedText = window.getSelection().toString().trim();
   if (selectedText.length > 0) {
     const utterance = new SpeechSynthesisUtterance(selectedText);
-    utterance.lang = 'en-US';
+    utterance.lang = 'en-GB';
     utterance.rate = 1.0; // Wolniejsze tempo – możesz dostosować wartość
     speechSynthesis.speak(utterance);
   } else {

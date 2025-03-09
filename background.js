@@ -1,13 +1,13 @@
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
-    id: "readSlowly",
-    title: "Odsłuchaj zaznaczony tekst po angielsku (wolno)",
+    id: "readSelection",
+    title: "Read selected text in English",
     contexts: ["selection"]
   });
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-  if (info.menuItemId === "readSlowly") {
+  if (info.menuItemId === "readSelection") {
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
       function: readSelectedText
@@ -20,10 +20,9 @@ function readSelectedText() {
   if (selectedText.length > 0) {
     const utterance = new SpeechSynthesisUtterance(selectedText);
     utterance.lang = 'en-GB';
-    utterance.rate = 1.0; // Wolniejsze tempo – możesz dostosować wartość
+    utterance.rate = 1.0; 
     speechSynthesis.speak(utterance);
   } else {
-    alert("Brak zaznaczonego tekstu.");
+    alert("No text selected.");
   }
 }
-
